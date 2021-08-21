@@ -1,3 +1,5 @@
+package week01;
+
 import java.util.Arrays;
 
 public class k번째_수 {
