@@ -1,6 +1,8 @@
 package week02;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Marathon {
     public static void main(String[] args) {
@@ -12,7 +14,10 @@ public class Marathon {
 //        String[] participant = {"leo", "kiki", "eden"};
 //        String[] completion = {"eden", "kiki"};
 //        solution2(participant,completion);
-        System.out.println(solution2(participant,completion));
+        System.out.println(solution3(participant,completion));
+        System.out.println(System.getProperty("java.version"));
+        System.out.println(System.getenv("JAVA_HOME"));
+        System.out.println(System.currentTimeMillis());
     }
 
     /*
@@ -67,4 +72,29 @@ public class Marathon {
         }
         return answer;
     }
+    public static String solution3(String[] participants, String[] completions) {
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < participants.length; i++) {
+            if (map.get(participants[i]) == null) {
+                map.put(participants[i], 1);
+                System.out.println("true");
+            } else {
+                map.put(participants[i], map.get(participants[i]) + 1);
+                System.out.println("else");
+            }
+        }
+        System.out.println(map);
+        for (int i = 0; i < completions.length; i++) {
+            if (map.containsKey(completions[i])) {
+                map.put(completions[i], map.get(completions[i]) - 1);
+            }
+        }
+
+        return map.entrySet().stream()
+            .filter(entry -> entry.getValue() == 1)
+            .map(Map.Entry::getKey)
+            .findFirst().orElse("");
+    }
+
+
 }
