@@ -51,3 +51,4 @@ public class Scoville {
         return answer;
     }
 }
+

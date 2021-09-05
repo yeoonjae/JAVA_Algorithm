@@ -17,6 +17,7 @@ public class Printer {
         Printer printer = new Printer();
         System.out.println(printer.solution(priorities, location));
     }
+
     public int solution(int[] priorities, int location) {
         int answer = 1;
         // location 위치를 어떻게 따라가지..
@@ -25,13 +26,17 @@ public class Printer {
         Queue<Integer> priorityQ = new LinkedList<>();
 
         // 1. 큐에 데이터 넣기
-        for(int i : priorities) priorityQ.add(i);
+        for (int i : priorities) {
+            priorityQ.add(i);
+        }
 
         // 2. 맨 앞에 위치한 값과 나머지값들을 비교
-        while(!priorityQ.isEmpty()) {
-            for(int i = 0; i < priorities.length; i++) {
-                if(priorities[i] == priorityQ.peek()) {
-                    if(i == location) return answer;
+        while (!priorityQ.isEmpty()) {
+            for (int i = 0; i < priorities.length; i++) {
+                if (priorities[i] == priorityQ.peek()) {
+                    if (i == location) {
+                        return answer;
+                    }
                     priorityQ.poll();
                     answer++;
                 }
@@ -54,7 +59,6 @@ public class Printer {
 ////                }
 ////            }
 //        }
-
 
     }
 }
