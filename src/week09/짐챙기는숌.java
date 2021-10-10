@@ -17,26 +17,28 @@ public class 짐챙기는숌 {
         int bookCnt = Integer.parseInt(st.nextToken());
         int maxWeight = Integer.parseInt(st.nextToken());
 
-        // 책의 무게
-        int box = 0;
-        int count = 1;
+        // 박스안에 들은 책의 무게
+        int boxWeight = 0;
+
+        // 박스의 개수
+        int boxCnt = 1;
         if (bookCnt != 0) {
 
             st = new StringTokenizer(br.readLine());
             for (int i = 0; i < bookCnt; i++) {
-                int book = Integer.parseInt(st.nextToken());
-                if (book + box <= maxWeight) {  // 박스 무게 + 책 무게 =  최대 무게보다 적을 때
-                    box += book;    // 박스에 책무게를 더한다.
+                int bookWeight  = Integer.parseInt(st.nextToken());
+                if (bookWeight  + boxWeight <= maxWeight) {  // 박스 무게 + 책 무게 =  최대 무게보다 적을 때
+                    boxWeight += bookWeight ;    // 박스에 책무게를 더한다.
                 } else {  // 박스무게 + 책 무게 = 최대 무게보다 많을 때
-                    count++; // 박스의 개수 증가
-                    box = book; // 박스에 책무게 대입
+                    boxCnt++; // 박스의 개수 증가
+                    boxWeight = bookWeight ; // 박스에 책무게 대입
                 }
             }
         } else {
-            count = 0;
+            boxCnt = 0;
         }
 
-        System.out.println(count);
+        System.out.println(boxCnt);
 
     }
 }
