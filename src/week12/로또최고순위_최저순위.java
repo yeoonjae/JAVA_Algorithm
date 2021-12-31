@@ -1,7 +1,5 @@
 package week12;
 
-import java.util.Arrays;
-
 public class 로또최고순위_최저순위 {
 
   public static void main(String[] args) {
@@ -38,5 +36,4 @@ public class 로또최고순위_최저순위 {
 
     return answer;
   }
-
 }
